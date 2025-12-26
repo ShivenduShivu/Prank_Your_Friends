@@ -1,69 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Ok Last One</title>
-<style>
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background: black;
-  color: white;
-  overflow: hidden;
-  font-family: system-ui;
-}
-
-.spam {
-  position: absolute;
-  font-size: clamp(2rem, 8vw, 8rem);
-  animation: blink .6s infinite;
-}
-
-@keyframes blink {
-  50% { opacity: .1; }
-}
-
-#calm {
-  display: none;
-  position: absolute;
-  inset: 0;
-  background: #111;
-  display: grid;
-  place-items: center;
-  text-align: center;
-}
-</style>
+    <meta charset="UTF-8">
+    <title>👻 HAUNTED PC 👻</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur'), auto; /* Scary cursor */
+        }
+        body {
+            animation: blood-drip 1s infinite;
+            background: #000;
+        }
+        @keyframes blood-drip {
+            0% { background: #8b0000; }
+            25% { background: #000; }
+            50% { background: #ff4500; }
+            75% { background: #000; }
+            100% { background: #8b0000; }
+        }
+        .curse {
+            position: absolute;
+            font-size: 70px;
+            font-weight: bold;
+            color: blood;
+            text-shadow: 5px 5px white;
+            animation: fade-in-out 2s infinite, jitter 0.15s infinite;
+            z-index: 1001;
+        }
+        @keyframes fade-in-out {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        @keyframes jitter {
+            0% { transform: translate(4px, 4px); }
+            50% { transform: translate(-4px, -4px); }
+            100% { transform: translate(4px, 4px); }
+        }
+        .ghost-popup {
+            position: absolute;
+            padding: 25px;
+            background: transparent;
+            border: 5px dashed white;
+            color: white;
+            font-size: 32px;
+            animation: haunt 1.2s infinite alternate;
+            z-index: 1000;
+        }
+        @keyframes haunt {
+            from { transform: translateY(0); opacity: 0.6; }
+            to { transform: translateY(-50px); opacity: 0; }
+        }
+        .horror {
+            position: absolute;
+            width: 220px;
+            z-index: 999;
+            animation: zoom 3s infinite linear;
+        }
+        @keyframes zoom {
+            from { transform: scale(0.5) translateX(100vw); }
+            to { transform: scale(2) translateX(-100vw); }
+        }
+        .spider {
+            position: absolute;
+            font-size: 45px;
+            animation: web-drop 7s infinite linear;
+            z-index: 1002;
+        }
+        @keyframes web-drop {
+            from { top: -100px; }
+            to { top: 110vh; }
+        }
+    </style>
 </head>
-
 <body>
-<div id="calm">
-  <h1>🙂 okay enough</h1>
-  <p>Happy Friendship Day</p>
-  <p>Now get back to your life.</p>
-</div>
-
-<script>
-let c = 0;
-const words = ["WHAT", "WHY", "HAHA", "BRO", "NO"];
-
-const int = setInterval(()=>{
-  const s = document.createElement("div");
-  s.className = "spam";
-  s.textContent = words[Math.floor(Math.random()*words.length)];
-  s.style.left = Math.random()*90 + "vw";
-  s.style.top = Math.random()*90 + "vh";
-  document.body.appendChild(s);
-  c++;
-
-  if (c > 18) {
-    clearInterval(int);
-    setTimeout(()=>{
-      document.body.innerHTML = "";
-      document.getElementById("calm").style.display = "grid";
-    }, 800);
-  }
-}, 200);
-</script>
+    <audio autoplay loop>
+        <source src="https://www.soundjay.com/horror/sounds/scream-1.mp3"> <!-- Screams -->
+    </audio>
+    <audio autoplay loop>
+        <source src="https://www.soundjay.com/ambient/sounds/creepy-ambience-1.mp3"> <!-- Creepy ambient -->
+    </audio>
+    <script>
+        const curses = [
+            "BHUT AA GAYA 👻",
+            "TERI AATMA CHURAI 😈",
+            "CURSED FOREVER 🧟",
+            "GHOST NE TERA PC POSSESSED 🕸️",
+            "DAR MAT, MAR JA 😱",
+            "BLOOD ON YOUR SCREEN 🩸",
+            "ERROR 13: UNLUCKY YOU 🔮",
+            "HAUNTED HARD DRIVE 💀",
+            "ESCAPE NAHI HO SAKTA 🚪",
+            "DEMON INSIDE YOUR MOUSE 🐭"
+        ];
+        const horrors = [
+            "https://media.giphy.com/media/3o7abKhvGg8NoBme2A/giphy.gif",
+            "https://media.giphy.com/media/l0HlP4UCjBNnYV3O8/giphy.gif",
+            "https://media.giphy.com/media/3o6Zt9jXh9p2z6g3Sw/giphy.gif",
+            "https://media.giphy.com/media/l3q2Ip7FrmPEB9MW4/giphy.gif",
+            "https://media.giphy.com/media/3ohs7Lyyi0ZATenWw8/giphy.gif",
+            "https://media.giphy.com/media/26FLdmIp6wJrDMunK/giphy.gif",
+            "https://media.giphy.com/media/l0MYEqEzwMW6Cau24/giphy.gif",
+            "https://media.giphy.com/media/3o7aD2ktzEroqKzSx2/giphy.gif",
+            "https://media.giphy.com/media/l3q2K5QjUq3sX6g3K/giphy.gif",
+            "https://media.giphy.com/media/3ohhwD4F4P6j6zXe0w/giphy.gif",
+            "https://media.giphy.com/media/26ufcVAp3AiJJsrEs/giphy.gif",
+            "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
+            "https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif",
+            "https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif",
+            "https://media.giphy.com/media/l0MYw1j0XNBm4dI4M/giphy.gif",
+            "https://media.giphy.com/media/3ohhwut7z8bPv0pG3K/giphy.gif",
+            "https://media.giphy.com/media/26n7b7PjSOZwmZcwI/giphy.gif",
+            "https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif",
+            "https://media.giphy.com/media/l3q2zVr6cu95nF6O4/giphy.gif",
+            "https://media.giphy.com/media/3ohhwiqZWNR6fK3y0w/giphy.gif"
+        ];
+        function rand(max) { return Math.random() * max; }
+        setInterval(() => {
+            let c = document.createElement("div");
+            c.className = "curse";
+            c.innerText = curses[Math.floor(Math.random() * curses.length)];
+            c.style.top = rand(innerHeight) + "px";
+            c.style.left = rand(innerWidth) + "px";
+            document.body.appendChild(c);
+        }, 250);
+        setInterval(() => {
+            let g = document.createElement("div");
+            g.className = "ghost-popup";
+            g.innerText = "🕯️ YOUR SOUL IS MINE 🕯️";
+            g.style.top = rand(innerHeight) + "px";
+            g.style.left = rand(innerWidth) + "px";
+            document.body.appendChild(g);
+        }, 600);
+        setInterval(() => {
+            let h = document.createElement("img");
+            h.src = horrors[Math.floor(Math.random() * horrors.length)];
+            h.className = "horror";
+            h.style.top = rand(innerHeight) + "px";
+            document.body.appendChild(h);
+        }, 200);
+        setInterval(() => {
+            let s = document.createElement("div");
+            s.className = "spider";
+            s.innerText = "🕷️🕷️🕷️🕷️🕷️🕷️";
+            s.style.left = rand(innerWidth) + "px";
+            document.body.appendChild(s);
+        }, 3000);
+        // Blur effect on mouse move
+        document.addEventListener("mousemove", e => {
+            document.body.style.filter = `blur(${Math.abs(Math.cos(e.clientX / 200) * 5)}px)`;
+        });
+        // Try to prevent closing
+        window.onbeforeunload = () => "Are you sure? The ghosts will follow you!";
+    </script>
 </body>
 </html>

@@ -1,191 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>🙂 Relax Bro</title>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Comic Sans MS',cursive}
-html,body{width:100%;height:100%;overflow:hidden}
-body{background:#111;transition:background 0.2s}
-
-@keyframes bgPulse{
-  0%{background:#111}
-  20%{background:#ff0055}
-  40%{background:#00ffd0}
-  60%{background:#5500ff}
-  80%{background:#ffcc00}
-  100%{background:#ff0000}
-}
-
-.card{
-  position:absolute;width:340px;background:#fff;border-radius:16px;
-  padding:16px;box-shadow:0 20px 50px rgba(0,0,0,.6);
-  animation:cardIn .6s ease;z-index:50
-}
-@keyframes cardIn{
-  from{transform:scale(.2) translateY(40px);opacity:0}
-  to{transform:scale(1) translateY(0);opacity:1}
-}
-.card h1{font-size:34px;color:#ff0033;text-align:center}
-.card img{width:100%;border-radius:12px;margin-top:10px}
-
-.pop{
-  position:absolute;font-size:56px;font-weight:900;color:#fff;
-  text-shadow:5px 5px #000;animation:shake .15s infinite;z-index:999
-}
-@keyframes shake{
-  0%{transform:translate(2px,2px)}
-  50%{transform:translate(-2px,-2px)}
-  100%{transform:translate(2px,-2px)}
-}
-
-.gif{
-  position:absolute;width:190px;animation:float 5s linear infinite;z-index:40
-}
-@keyframes float{from{transform:translateY(110vh)}to{transform:translateY(-220px)}}
-
-.snake{position:absolute;font-size:42px;animation:snake 7s linear infinite;z-index:60}
-@keyframes snake{from{left:-200px}to{left:110vw}}
-
-.cursorClone{
-  position:absolute;pointer-events:none;font-size:22px;z-index:2000;
-  animation:fade 1.5s linear forwards
-}
-@keyframes fade{to{opacity:0}}
-
-#glitch{
-  position:fixed;inset:0;pointer-events:none;z-index:3000;mix-blend-mode:screen
-}
-</style>
+    <meta charset="UTF-8">
+    <title>💥 VIRUS ALERT 💥</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            cursor: none; /* Hide cursor for max chaos */
+        }
+        body {
+            animation: glitch 0.5s infinite;
+            background: black;
+        }
+        @keyframes glitch {
+            0% { background: #ff0000; clip-path: inset(0 0 0 0); }
+            20% { background: #00ff00; clip-path: inset(10% 0 20% 0); }
+            40% { background: #0000ff; clip-path: inset(30% 0 10% 0); }
+            60% { background: #ffff00; clip-path: inset(5% 0 40% 0); }
+            80% { background: #ff00ff; clip-path: inset(20% 0 5% 0); }
+            100% { background: #00ffff; clip-path: inset(0 0 0 0); }
+        }
+        .insult {
+            position: absolute;
+            font-size: 80px;
+            font-weight: bold;
+            color: lime;
+            text-shadow: 6px 6px red;
+            animation: warp 1.5s infinite linear, vibrate 0.1s infinite;
+            z-index: 1001;
+        }
+        @keyframes warp {
+            0% { transform: skew(0deg); }
+            50% { transform: skew(30deg); }
+            100% { transform: skew(-30deg); }
+        }
+        @keyframes vibrate {
+            0% { transform: translate(3px, 3px); }
+            25% { transform: translate(-3px, -3px); }
+            50% { transform: translate(3px, -3px); }
+            75% { transform: translate(-3px, 3px); }
+            100% { transform: translate(3px, 3px); }
+        }
+        .alert-box {
+            position: absolute;
+            padding: 30px;
+            background: red;
+            border: 6px solid black;
+            color: black;
+            font-size: 36px;
+            animation: explode 0.8s infinite alternate;
+            z-index: 1000;
+        }
+        @keyframes explode {
+            from { transform: scale(1); opacity: 1; }
+            to { transform: scale(2); opacity: 0.5; }
+        }
+        .meme {
+            position: absolute;
+            width: 250px;
+            z-index: 999;
+            animation: spiral 4s infinite linear;
+        }
+        @keyframes spiral {
+            from { transform: translateX(-100vw) rotate(0deg); }
+            to { transform: translateX(100vw) rotate(720deg); }
+        }
+        .worm {
+            position: absolute;
+            font-size: 50px;
+            animation: worm-crawl 5s infinite linear;
+            z-index: 1002;
+        }
+        @keyframes worm-crawl {
+            from { top: -100px; }
+            to { top: 110vh; }
+        }
+    </style>
 </head>
-
 <body>
-
-<canvas id="glitch"></canvas>
-
-<audio id="noise" loop>
-  <source src="https://www.soundjay.com/horror/sounds/horror-1.mp3">
-</audio>
-
-<script>
-/* ---------------- DATA ---------------- */
-const slurs=[
-  "ABE GADHE 🤡","PADH LE BHAI 📚","CPU SE BHI SLOW 🐢","DIMAAG UPDATE KAR 😭",
-  "KYA DEKH RAHA HAI 👀","RESTART YOUR LIFE 🔁",
-  "ERROR: COMMON SENSE MISSING","ITNA CONFIDENT KYU FAIL HAI 💀",
-  "SOCHA THA SMART HOGA 😬","BRUH MOMENT PRO MAX"
-];
-
-const gifs=[
- "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
- "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
- "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
- "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
- "https://media.giphy.com/media/3orieRkzX5m9k9QqBi/giphy.gif",
- "https://media.giphy.com/media/xUPGcguWZHRC2HyBRS/giphy.gif",
- "https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif",
- "https://media.giphy.com/media/l3q2FZFDqFmK8fkuA/giphy.gif",
- "https://media.giphy.com/media/3ohhwMULIutDIMNh28/giphy.gif",
- "https://media.giphy.com/media/9Y5BbDSkSTiY8/giphy.gif",
- "https://media.giphy.com/media/3ohs4BSacFKI7A717y/giphy.gif",
- "https://media.giphy.com/media/l4EoTh4S8Y8mV9jH2/giphy.gif",
- "https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif",
- "https://media.giphy.com/media/l0HUpt2s9Pclgt9Vm/giphy.gif",
- "https://media.giphy.com/media/26n6WywJyh39n1pBu/giphy.gif",
- "https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif",
- "https://media.giphy.com/media/26ufnwz3wDUli7GU0/giphy.gif",
- "https://media.giphy.com/media/l0HlPjezGYz0N7Z9m/giphy.gif",
- "https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif",
- "https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif"
-];
-
-/* ---------------- UTILS ---------------- */
-let phase=1, speed=1600;
-const noise=document.getElementById("noise");
-const rand=m=>Math.random()*m;
-
-/* ---------------- ELEMENT CREATORS ---------------- */
-function card(){
-  const c=document.createElement("div"); c.className="card";
-  c.style.top=rand(innerHeight-360)+"px";
-  c.style.left=rand(innerWidth-360)+"px";
-  c.innerHTML=`<h1>${slurs[Math.floor(Math.random()*slurs.length)]}</h1>
-               <img src="${gifs[Math.floor(Math.random()*gifs.length)]}">`;
-  document.body.appendChild(c);
-}
-function pop(n=1){
-  for(let i=0;i<n;i++){
-    const p=document.createElement("div"); p.className="pop";
-    p.textContent=slurs[Math.floor(Math.random()*slurs.length)];
-    p.style.top=rand(innerHeight)+"px";
-    p.style.left=rand(innerWidth)+"px";
-    document.body.appendChild(p);
-  }
-}
-function gifRain(){
-  const g=document.createElement("img"); g.className="gif";
-  g.src=gifs[Math.floor(Math.random()*gifs.length)];
-  g.style.left=rand(innerWidth)+"px";
-  document.body.appendChild(g);
-}
-function snake(){
-  const s=document.createElement("div"); s.className="snake";
-  s.textContent="🐍🐍🐍🐍🐍"; s.style.top=rand(innerHeight)+"px";
-  document.body.appendChild(s);
-}
-
-/* ---------------- PHASE CONTROL ---------------- */
-setTimeout(()=>phase=2,10000);
-setTimeout(()=>phase=3,25000);
-setTimeout(()=>{
-  phase=4; speed=90;
-  document.body.style.animation="bgPulse .4s infinite";
-  noise.volume=.6; noise.play();
-},45000);
-
-/* ---------------- MAIN LOOP ---------------- */
-(function loop(){
-  if(phase===1){ card(); }
-  if(phase===2){ card(); if(Math.random()>.4) gifRain(); if(Math.random()>.6) snake(); speed=900; }
-  if(phase===3){ pop(6); gifRain(); if(Math.random()>.3) snake(); speed=180; }
-  if(phase===4){ pop(14); for(let i=0;i<3;i++) gifRain(); snake(); }
-  setTimeout(loop,speed);
-})();
-
-/* ---------------- FINAL BOSS EXTRAS ---------------- */
-// Cursor clones multiply
-document.addEventListener("mousemove",e=>{
-  if(phase<4) return;
-  for(let i=0;i<3;i++){
-    const c=document.createElement("div");
-    c.className="cursorClone"; c.textContent="❌";
-    c.style.left=(e.clientX+rand(20)-10)+"px";
-    c.style.top=(e.clientY+rand(20)-10)+"px";
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),1500);
-  }
-});
-
-// Keyboard echo sprays giant text
-document.addEventListener("keydown",()=>{
-  if(phase<4) return;
-  pop(3);
-});
-
-// Glitch canvas flicker
-const canvas=document.getElementById("glitch"),ctx=canvas.getContext("2d");
-function resize(){canvas.width=innerWidth;canvas.height=innerHeight}
-addEventListener("resize",resize); resize();
-setInterval(()=>{
-  if(phase<4) return;
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  for(let i=0;i<120;i++){
-    ctx.fillStyle=`rgba(${rand(255)},0,${rand(255)},.15)`;
-    ctx.fillRect(rand(canvas.width),rand(canvas.height),rand(120),rand(6));
-  }
-},60);
-</script>
-
+    <audio autoplay loop>
+        <source src="https://www.soundjay.com/buttons/sounds/button-20.mp3"> <!-- Annoying beep loop -->
+    </audio>
+    <audio autoplay loop>
+        <source src="https://www.soundjay.com/horror/sounds/horror-laugh-1.mp3"> <!-- Evil laugh -->
+    </audio>
+    <script>
+        const insults = [
+            "TERA DIMAAG HACK HO GAYA 🤖",
+            "FILES DELETE HO RAHI HAI 💾",
+            "TU EK NUMBER KA LOSER 😤",
+            "VIRUS NE TERA PC KHAYA 🦠",
+            "BHAG BC, SYSTEM CRASH 😱",
+            "NOOB SAALA, PADH LE KUCH 📖",
+            "ERROR 666: DEVIL INSIDE 👹",
+            "ITNA SLOW KYU HAI TU 🐌",
+            "DELETE YOUR EXISTENCE 🗑️",
+            "HACKER NE TERA SAB LOOT LIYA 💻"
+        ];
+        const memes = [
+            "https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif",
+            "https://media.giphy.com/media/26FPy3QZQqGtDcrja/giphy.gif",
+            "https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif",
+            "https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif",
+            "https://media.giphy.com/media/l0MYw1j0XNBm4dI4M/giphy.gif",
+            "https://media.giphy.com/media/3ohhwut7z8bPv0pG3K/giphy.gif",
+            "https://media.giphy.com/media/26ufcVAp3AiJJsrEs/giphy.gif",
+            "https://media.giphy.com/media/3o6Zt6KHxJTzyl4NK8/giphy.gif",
+            "https://media.giphy.com/media/l3q2XhfQ8oCkm1TSu/giphy.gif",
+            "https://media.giphy.com/media/3o6Ztp6k4U7b5z5jG0/giphy.gif",
+            "https://media.giphy.com/media/l0MYC0LzjCs1lsv3u/giphy.gif",
+            "https://media.giphy.com/media/3o7aD4ov7VemkXp3Ei/giphy.gif",
+            "https://media.giphy.com/media/l0HlvtIPzPdt2usKs/giphy.gif",
+            "https://media.giphy.com/media/3ohs7KViF6rA8aan5u/giphy.gif",
+            "https://media.giphy.com/media/26n7b7PjSOZwmZcwI/giphy.gif",
+            "https://media.giphy.com/media/3o7btNa0RUOKOW7xtN/giphy.gif",
+            "https://media.giphy.com/media/l3q2zVr6cu95nF6O4/giphy.gif",
+            "https://media.giphy.com/media/3ohhwiqZWNR6fK3y0w/giphy.gif",
+            "https://media.giphy.com/media/26ufnuUjijLq8zUlW/giphy.gif",
+            "https://media.giphy.com/media/3o7aCSPqXE5C6T8tBC/giphy.gif"
+        ];
+        function rand(max) { return Math.random() * max; }
+        setInterval(() => {
+            let i = document.createElement("div");
+            i.className = "insult";
+            i.innerText = insults[Math.floor(Math.random() * insults.length)];
+            i.style.top = rand(innerHeight) + "px";
+            i.style.left = rand(innerWidth) + "px";
+            document.body.appendChild(i);
+        }, 200); // Faster spawn
+        setInterval(() => {
+            let a = document.createElement("div");
+            a.className = "alert-box";
+            a.innerText = "🚨 VIRUS DETECTED - ALL FILES GONE 🚨";
+            a.style.top = rand(innerHeight) + "px";
+            a.style.left = rand(innerWidth) + "px";
+            document.body.appendChild(a);
+        }, 500);
+        setInterval(() => {
+            let m = document.createElement("img");
+            m.src = memes[Math.floor(Math.random() * memes.length)];
+            m.className = "meme";
+            m.style.top = rand(innerHeight) + "px";
+            document.body.appendChild(m);
+        }, 150); // More memes
+        setInterval(() => {
+            let w = document.createElement("div");
+            w.className = "worm";
+            w.innerText = "🪱🪱🪱🪱🪱🪱🪱";
+            w.style.left = rand(innerWidth) + "px";
+            document.body.appendChild(w);
+        }, 2000);
+        // Invert colors on mouse move for extra degeneracy
+        document.addEventListener("mousemove", e => {
+            document.body.style.filter = `invert(${Math.abs(Math.sin(e.clientY / 100))})`;
+        });
+        // Fake fullscreen to trap them
+        document.documentElement.requestFullscreen();
+    </script>
 </body>
 </html>
