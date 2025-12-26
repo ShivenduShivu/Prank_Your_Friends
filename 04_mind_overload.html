@@ -1,53 +1,167 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Processing...</title>
+<title>💀 SYSTEM GLITCH 💀</title>
+
 <style>
-body{
-  margin:0;
-  background:#000;
-  color:#0f0;
-  font-family:monospace;
-  overflow:hidden;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Impact, Arial, sans-serif;
 }
-.txt{
-  position:absolute;
-  font-size:32px;
-  animation:glitch .4s infinite;
+
+body {
+    overflow: hidden;
+    animation: bgFlash 0.8s infinite;
 }
-@keyframes glitch{
-  0%{opacity:1}
-  50%{opacity:.2}
-  100%{opacity:1}
+
+@keyframes bgFlash {
+    0% { background: red; }
+    25% { background: black; }
+    50% { background: purple; }
+    75% { background: lime; }
+    100% { background: cyan; }
+}
+
+.slur {
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 3px 3px 10px red;
+    animation: spinZoom 1.5s infinite;
+    pointer-events: none;
+}
+
+@keyframes spinZoom {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.5) rotate(180deg); }
+    100% { transform: scale(1) rotate(360deg); }
+}
+
+.gif {
+    position: absolute;
+    width: 180px;
+    animation: bounce 1.2s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(80px); }
+}
+
+.popup {
+    position: absolute;
+    background: black;
+    border: 3px solid red;
+    padding: 10px;
+    animation: shake 0.15s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(2px,2px); }
+    50% { transform: translate(-2px,-2px); }
+    100% { transform: translate(2px,-2px); }
+}
+
+.snake {
+    position: absolute;
+    font-size: 50px;
+    animation: snakeMove 6s linear infinite;
+}
+
+@keyframes snakeMove {
+    from { left: -100px; }
+    to { left: 110%; }
 }
 </style>
 </head>
+
 <body>
 
+<audio autoplay loop>
+    <source src="https://www.soundjay.com/human/sounds/scream-01.mp3">
+</audio>
+
 <script>
-const lines=[
-"WHY ARE YOU STILL HERE",
-"THIS IS NOT A GAME",
-"THINK FASTER",
-"INPUT INVALID",
-"LOGIC NOT FOUND",
-"PLEASE STOP BLINKING"
+const slurs = [
+    "ABE OOO 🤡",
+    "KYA KAR RAHA HAI 😂",
+    "DIMAG HAI YA WIFI 📶",
+    "BHAI BAND KAR 😭",
+    "CHUP BSDK 🤬",
+    "SYSTEM HANG HO GAYA 💀",
+    "KYA DEKH RAHA HAI 👀",
+    "GADHA MODE ON 🐴",
+    "LOL 😂😂😂",
+    "PAGAL HO GAYA KYA 🤡"
 ];
 
-setInterval(()=>{
-  const t=document.createElement("div");
-  t.className="txt";
-  t.innerText=lines[Math.floor(Math.random()*lines.length)];
-  t.style.top=Math.random()*100+"%";
-  t.style.left=Math.random()*100+"%";
-  document.body.appendChild(t);
-},150);
+const gifs = [
+    "https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif",
+    "https://media.giphy.com/media/l3q2K5jinAlChoCLS/giphy.gif",
+    "https://media.giphy.com/media/26ufdipQqU2lhNA4g/giphy.gif",
+    "https://media.giphy.com/media/10JhviFuU2gWD6/giphy.gif",
+    "https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
+    "https://media.giphy.com/media/26tPplGWjN0xLybiU/giphy.gif",
+    "https://media.giphy.com/media/3ohhwF34cGDoFFhRfy/giphy.gif",
+    "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
+    "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
+    "https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif"
+];
 
-document.onmousemove=e=>{
-  document.body.style.transform=
-    `rotate(${Math.sin(e.clientX/50)}deg)`;
-};
+function spawnSlur() {
+    const d = document.createElement("div");
+    d.className = "slur";
+    d.innerText = slurs[Math.floor(Math.random()*slurs.length)];
+    d.style.top = Math.random()*90 + "%";
+    d.style.left = Math.random()*90 + "%";
+    document.body.appendChild(d);
+    setTimeout(()=>d.remove(), 4000);
+}
+
+function spawnGif() {
+    const img = document.createElement("img");
+    img.className = "gif";
+    img.src = gifs[Math.floor(Math.random()*gifs.length)];
+    img.style.top = Math.random()*80 + "%";
+    img.style.left = Math.random()*80 + "%";
+    document.body.appendChild(img);
+    setTimeout(()=>img.remove(), 6000);
+}
+
+function horrorPopup() {
+    const p = document.createElement("div");
+    p.className = "popup";
+    p.innerHTML = `<img src="https://media.giphy.com/media/3o6ZtpWvwnhf34Oj0A/giphy.gif" width="200">`;
+    p.style.top = Math.random()*80 + "%";
+    p.style.left = Math.random()*80 + "%";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(), 3000);
+}
+
+function snakeRun() {
+    const s = document.createElement("div");
+    s.className = "snake";
+    s.innerText = "🐍🐍🐍🐍🐍";
+    s.style.top = Math.random()*90 + "%";
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(), 7000);
+}
+
+setInterval(spawnSlur, 200);
+setInterval(spawnGif, 500);
+setInterval(horrorPopup, 1200);
+setInterval(snakeRun, 3000);
+
+// Cursor chaos
+document.addEventListener("mousemove", e => {
+    document.body.style.transform =
+        `rotate(${Math.random()*2-1}deg) scale(${1 + Math.random()*0.05})`;
+});
 </script>
+
 </body>
 </html>
