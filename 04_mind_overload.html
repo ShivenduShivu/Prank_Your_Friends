@@ -9,7 +9,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            cursor: none; /* Hide cursor for max chaos */
+            cursor: none;
         }
         body {
             animation: glitch 0.5s infinite;
@@ -81,11 +81,12 @@
     </style>
 </head>
 <body>
+    <!-- Annoying sci-fi alarm beep loop + Evil laugh loop -->
     <audio autoplay loop>
-        <source src="https://www.soundjay.com/buttons/sounds/button-20.mp3"> <!-- Annoying beep loop -->
+        <source src="https://cdn.zapsplat.com/sound-packs/wp-content/uploads/2015/10/science-fiction-alarm-beeping-warning-loop.mp3">
     </audio>
     <audio autoplay loop>
-        <source src="https://www.soundjay.com/horror/sounds/horror-laugh-1.mp3"> <!-- Evil laugh -->
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-evil-fiendish-laugh-653.mp3">
     </audio>
     <script>
         const insults = [
@@ -101,7 +102,7 @@
             "HACKER NE TERA SAB LOOT LIYA 💻"
         ];
         const memes = [
-            "https://media.giphy.com/media/3o7abKhOpu0NwenH3O/giphy.gif",
+            "https://media.giphy.com/media/3o7abKhvGg8NoBme2A/giphy.gif",
             "https://media.giphy.com/media/26FPy3QZQqGtDcrja/giphy.gif",
             "https://media.giphy.com/media/l0HlRnAWXxn0MhKLK/giphy.gif",
             "https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif",
@@ -130,7 +131,7 @@
             i.style.top = rand(innerHeight) + "px";
             i.style.left = rand(innerWidth) + "px";
             document.body.appendChild(i);
-        }, 200); // Faster spawn
+        }, 200);
         setInterval(() => {
             let a = document.createElement("div");
             a.className = "alert-box";
@@ -145,7 +146,7 @@
             m.className = "meme";
             m.style.top = rand(innerHeight) + "px";
             document.body.appendChild(m);
-        }, 150); // More memes
+        }, 150);
         setInterval(() => {
             let w = document.createElement("div");
             w.className = "worm";
@@ -153,11 +154,9 @@
             w.style.left = rand(innerWidth) + "px";
             document.body.appendChild(w);
         }, 2000);
-        // Invert colors on mouse move for extra degeneracy
         document.addEventListener("mousemove", e => {
             document.body.style.filter = `invert(${Math.abs(Math.sin(e.clientY / 100))})`;
         });
-        // Fake fullscreen to trap them
         document.documentElement.requestFullscreen();
     </script>
 </body>

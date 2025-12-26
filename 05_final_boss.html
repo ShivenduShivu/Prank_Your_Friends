@@ -9,7 +9,7 @@
             width: 100%;
             height: 100%;
             overflow: hidden;
-            cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur'), auto; /* Scary cursor */
+            cursor: url('https://cur.cursors-4u.net/cursors/cur-11/cur1054.cur'), auto;
         }
         body {
             animation: blood-drip 1s infinite;
@@ -61,7 +61,12 @@
             z-index: 999;
             animation: zoom 3s infinite linear;
         }
-        @keyframes zoom {
+        /* Random direction: left-to-right or right-to-left */
+        @keyframes zoom-left-to-right {
+            from { transform: scale(0.5) translateX(-100vw); }
+            to { transform: scale(2) translateX(100vw); }
+        }
+        @keyframes zoom-right-to-left {
             from { transform: scale(0.5) translateX(100vw); }
             to { transform: scale(2) translateX(-100vw); }
         }
@@ -78,11 +83,12 @@
     </style>
 </head>
 <body>
+    <!-- Female horror scream (repeats for max scare) + Creepy horror ambience loop -->
     <audio autoplay loop>
-        <source src="https://www.soundjay.com/horror/sounds/scream-1.mp3"> <!-- Screams -->
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-woman-screaming-in-horror-1293.mp3">
     </audio>
     <audio autoplay loop>
-        <source src="https://www.soundjay.com/ambient/sounds/creepy-ambience-1.mp3"> <!-- Creepy ambient -->
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-horror-creepy-ambience-482.mp3">
     </audio>
     <script>
         const curses = [
@@ -141,6 +147,12 @@
             h.src = horrors[Math.floor(Math.random() * horrors.length)];
             h.className = "horror";
             h.style.top = rand(innerHeight) + "px";
+            // Random direction: 50/50 chance left-to-right or right-to-left
+            if (Math.random() < 0.5) {
+                h.style.animation = "zoom-left-to-right 3s infinite linear";
+            } else {
+                h.style.animation = "zoom-right-to-left 3s infinite linear";
+            }
             document.body.appendChild(h);
         }, 200);
         setInterval(() => {
@@ -150,11 +162,9 @@
             s.style.left = rand(innerWidth) + "px";
             document.body.appendChild(s);
         }, 3000);
-        // Blur effect on mouse move
         document.addEventListener("mousemove", e => {
             document.body.style.filter = `blur(${Math.abs(Math.cos(e.clientX / 200) * 5)}px)`;
         });
-        // Try to prevent closing
         window.onbeforeunload = () => "Are you sure? The ghosts will follow you!";
     </script>
 </body>
