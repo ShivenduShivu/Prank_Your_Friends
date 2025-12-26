@@ -2,77 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Mocking Mischief 😜</title>
+<title>Mock Mode 😜</title>
 
 <style>
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #fff1c1, #ffd166);
+  width: 100vw;
   height: 100vh;
+  background: #ffe066;
+  display: grid;
+  place-items: center;
   overflow: hidden;
-  font-family: system-ui, sans-serif;
-}
-
-.container {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card {
-  background: #fff;
-  padding: 40px;
-  border-radius: 18px;
-  box-shadow: 0 25px 60px rgba(0,0,0,.15);
-  text-align: center;
-  animation: slideIn .8s ease;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: clamp(3rem, 10vw, 9rem);
+  text-align: center;
+  animation: shake 2s infinite ease-in-out;
 }
 
-.mock {
-  font-size: 1.3rem;
-  margin: 20px 0;
-}
-
-button {
-  padding: 12px 22px;
-  font-size: 1rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  background: #ef476f;
-  color: white;
-  position: relative;
-}
-
-@keyframes slideIn {
-  from { transform: translateY(50px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes shake {
+  0%,100% { transform: rotate(0deg); }
+  50% { transform: rotate(1deg); }
 }
 </style>
 </head>
 
 <body>
-<div class="container">
-  <div class="card">
-    <h1>Be Honest 😌</h1>
-    <div class="mock">You really thought this would stay peaceful?</div>
-    <button id="btn">Click me 😏</button>
-  </div>
-</div>
+<h1 id="text">LOOK AT YOU 😏</h1>
 
 <script>
-const btn = document.getElementById("btn");
+const roasts = [
+  "STILL SCROLLING?",
+  "PRODUCTIVITY LEFT THE CHAT",
+  "ABSOLUTE ICON",
+  "MAIN CHARACTER ENERGY",
+  "CONFIDENCE WITHOUT REASON"
+];
 
-btn.addEventListener("mouseenter", () => {
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 150 - 75;
-  btn.style.transform = `translate(${x}px, ${y}px)`;
+const t = document.getElementById("text");
+
+document.addEventListener("mousemove", () => {
+  t.textContent = roasts[Math.floor(Math.random()*roasts.length)];
 });
 </script>
 </body>
