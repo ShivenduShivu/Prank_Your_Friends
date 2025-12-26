@@ -2,164 +2,68 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Loading...</title>
-
+<title>Ok Last One</title>
 <style>
-html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#111;
-    font-family:'Impact', sans-serif;
+body {
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  background: black;
+  color: white;
+  overflow: hidden;
+  font-family: system-ui;
 }
 
-body{
-    transition:background 0.3s;
+.spam {
+  position: absolute;
+  font-size: clamp(2rem, 8vw, 8rem);
+  animation: blink .6s infinite;
 }
 
-.card{
-    position:absolute;
-    width:420px;
-    padding:25px;
-    background:linear-gradient(135deg,#ff004c,#000);
-    border-radius:20px;
-    color:white;
-    font-size:48px;
-    text-align:center;
-    box-shadow:0 0 40px red;
-    animation:pop 0.6s ease;
-    z-index:10;
+@keyframes blink {
+  50% { opacity: .1; }
 }
 
-@keyframes pop{
-    from{transform:scale(0)}
-    to{transform:scale(1)}
-}
-
-.gif{
-    position:absolute;
-    width:220px;
-    z-index:9;
-}
-
-.chaos{
-    animation:bg 0.3s infinite;
-}
-
-@keyframes bg{
-    0%{background:#000}
-    25%{background:#ff0033}
-    50%{background:#00ffcc}
-    75%{background:#5500ff}
-    100%{background:#000}
-}
-
-.final{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    background:black;
-    color:white;
-    font-size:64px;
-    text-align:center;
-    z-index:999;
-}
-
-.final span{
-    font-size:40px;
-    margin-top:20px;
-}
-
-.laugh{
-    width:400px;
-    margin-top:30px;
+#calm {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: #111;
+  display: grid;
+  place-items: center;
+  text-align: center;
 }
 </style>
 </head>
 
 <body>
+<div id="calm">
+  <h1>🙂 okay enough</h1>
+  <p>Happy Friendship Day</p>
+  <p>Now get back to your life.</p>
+</div>
 
 <script>
-const slurs=[
-"ABE GADHE",
-"CHAMTIYA PRO MAX",
-"CPU SE BHI SLOW",
-"PADH LE BSDK",
-"ERROR 404 DIMAAG",
-"NAALAYAK",
-"ITNA CONFIDENCE KAHAN SE",
-"TU REHNE DE",
-"BHAG YAHAN SE",
-"OVERACTING KI DUKAAN",
-"ANDROID 2.3 BRAIN",
-"SOCH SAMJH KE SAANS LE",
-"ITNA FAIL KYU HAI",
-"CONFUSION KA BAAP",
-"YEH KYA DEKH LIYA",
-"BACKBENCH LEGEND",
-"MEME MATERIAL",
-"EK NUMBER KA NAMOONA",
-"AKAL GHUTNO MEIN",
-"MISSION FAILED"
-];
+let c = 0;
+const words = ["WHAT", "WHY", "HAHA", "BRO", "NO"];
 
-const gifs=[
-"https://media.giphy.com/media/3o6Zt6ML6BklcajjsA/giphy.gif",
-"https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
-"https://media.giphy.com/media/13HgwGsXF0aiGY/giphy.gif",
-"https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif",
-"https://media.giphy.com/media/xUPGcguWZHRC2HyBRS/giphy.gif"
-];
+const int = setInterval(()=>{
+  const s = document.createElement("div");
+  s.className = "spam";
+  s.textContent = words[Math.floor(Math.random()*words.length)];
+  s.style.left = Math.random()*90 + "vw";
+  s.style.top = Math.random()*90 + "vh";
+  document.body.appendChild(s);
+  c++;
 
-let interval=1200;
-let timer;
-let count=0;
-
-function spawn(){
-    const c=document.createElement("div");
-    c.className="card";
-    c.innerText=slurs[Math.floor(Math.random()*slurs.length)];
-    c.style.top=Math.random()*70+"%";
-    c.style.left=Math.random()*60+"%";
-    document.body.appendChild(c);
-
-    const g=document.createElement("img");
-    g.src=gifs[Math.floor(Math.random()*gifs.length)];
-    g.className="gif";
-    g.style.top=Math.random()*80+"%";
-    g.style.left=Math.random()*80+"%";
-    document.body.appendChild(g);
-
-    count++;
-}
-
-timer=setInterval(spawn,interval);
-
-// Speed ramp
-setTimeout(()=>interval=700,4000);
-setTimeout(()=>interval=350,9000);
-
-// Chaos mode
-setTimeout(()=>{
-    document.body.classList.add("chaos");
-    clearInterval(timer);
-    timer=setInterval(spawn,150);
-},9000);
-
-// Final message
-setTimeout(()=>{
-    document.body.innerHTML=`
-    <div class="final">
-        Goli Beta, Baap Se Masti Nahi
-        <span>Agli Baar Lita Kar Marunga</span>
-        <img class="laugh" src="https://media.giphy.com/media/10JhviFuU2gWD6/giphy.gif">
-    </div>`;
-},15000);
+  if (c > 18) {
+    clearInterval(int);
+    setTimeout(()=>{
+      document.body.innerHTML = "";
+      document.getElementById("calm").style.display = "grid";
+    }, 800);
+  }
+}, 200);
 </script>
-
 </body>
 </html>

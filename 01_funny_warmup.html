@@ -1,50 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Mock Mode 😜</title>
-
+<title>Nice Vibes 🙂</title>
 <style>
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background: #ffe066;
-  display: grid;
-  place-items: center;
+  background: linear-gradient(120deg,#c2ffd8,#465efb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui;
   overflow: hidden;
 }
 
-h1 {
-  font-size: clamp(3rem, 10vw, 9rem);
-  text-align: center;
-  animation: shake 2s infinite ease-in-out;
-}
-
-@keyframes shake {
-  0%,100% { transform: rotate(0deg); }
-  50% { transform: rotate(1deg); }
+#text {
+  font-size: clamp(2rem, 6vw, 6rem);
+  color: white;
+  transition: transform .2s;
 }
 </style>
 </head>
 
 <body>
-<h1 id="text">LOOK AT YOU 😏</h1>
+<div id="text">You’re a good friend 🙂</div>
 
 <script>
-const roasts = [
-  "STILL SCROLLING?",
-  "PRODUCTIVITY LEFT THE CHAT",
-  "ABSOLUTE ICON",
-  "MAIN CHARACTER ENERGY",
-  "CONFIDENCE WITHOUT REASON"
+const lines = [
+  "You’re a good friend 🙂",
+  "Like genuinely 😄",
+  "No sarcasm 😌",
+  "Okay maybe tiny bit 🤏",
+  "Still here?",
+  "Why are you waiting?",
+  "You expect something?",
+  "Bro move on 💀",
+  "Fine. Go open another file."
 ];
 
-const t = document.getElementById("text");
-
-document.addEventListener("mousemove", () => {
-  t.textContent = roasts[Math.floor(Math.random()*roasts.length)];
-});
+let i = 0;
+setInterval(() => {
+  document.getElementById("text").textContent = lines[i];
+  document.getElementById("text").style.transform =
+    `rotate(${Math.random()*4-2}deg)`;
+  i = Math.min(i+1, lines.length-1);
+}, 1200);
 </script>
 </body>
 </html>
