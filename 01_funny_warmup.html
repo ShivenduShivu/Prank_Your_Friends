@@ -1,67 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Friendly Vibes 😄</title>
-
+<title>Nice Vibes 🙂</title>
 <style>
-:root {
-  --bg: linear-gradient(135deg, #ffecd2, #fcb69f);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, sans-serif;
-}
-
 body {
+  margin: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--bg);
+  background: linear-gradient(120deg,#c2ffd8,#465efb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui;
   overflow: hidden;
 }
 
-.bubble {
-  position: absolute;
-  padding: 1rem 1.5rem;
-  background: rgba(255,255,255,0.85);
-  border-radius: 999px;
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  animation: float 12s linear infinite;
-  transition: transform .3s ease;
-}
-
-.bubble:hover {
-  transform: scale(1.2);
-}
-
-@keyframes float {
-  from { transform: translateY(110vh); }
-  to { transform: translateY(-20vh); }
+#text {
+  font-size: clamp(2rem, 6vw, 6rem);
+  color: white;
+  transition: transform .2s;
 }
 </style>
 </head>
 
 <body>
+<div id="text">You’re a good friend 🙂</div>
+
 <script>
-const messages = [
-  "Friendship > Everything 💛",
-  "You’re doing great 😄",
-  "Thanks for existing 🫂",
-  "Certified Best Friend 🏆",
-  "Laugh more, stress less 😌"
+const lines = [
+  "You’re a good friend 🙂",
+  "Like genuinely 😄",
+  "No sarcasm 😌",
+  "Okay maybe tiny bit 🤏",
+  "Still here?",
+  "Why are you waiting?",
+  "You expect something?",
+  "Bro move on 💀",
+  "Fine. Go open another file."
 ];
 
-for (let i = 0; i < 12; i++) {
-  const b = document.createElement("div");
-  b.className = "bubble";
-  b.textContent = messages[Math.floor(Math.random()*messages.length)];
-  b.style.left = Math.random()*90 + "vw";
-  b.style.animationDuration = 10 + Math.random()*10 + "s";
-  document.body.appendChild(b);
-}
+let i = 0;
+setInterval(() => {
+  document.getElementById("text").textContent = lines[i];
+  document.getElementById("text").style.transform =
+    `rotate(${Math.random()*4-2}deg)`;
+  i = Math.min(i+1, lines.length-1);
+}, 1200);
 </script>
 </body>
 </html>

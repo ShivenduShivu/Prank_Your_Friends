@@ -1,49 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Chaos Engine 😭</title>
-
+<title>Stop Looking</title>
 <style>
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background: #0f0f0f;
-  overflow: hidden;
-  color: white;
+  background: #000;
+  color: #0f0;
   font-family: monospace;
+  overflow: hidden;
 }
 
-.pop {
+.msg {
   position: absolute;
-  font-size: clamp(1rem, 2vw, 1.8rem);
-  animation: pop .4s ease;
-}
-
-@keyframes pop {
-  from { transform: scale(0); }
-  to { transform: scale(1); }
+  font-size: clamp(1.2rem, 3vw, 3rem);
+  opacity: .8;
 }
 </style>
 </head>
 
 <body>
 <script>
-const texts = ["STOP", "WHY", "ENOUGH", "BRUH", "NOPE"];
-let speed = 600;
+const msgs = [
+  "STOP",
+  "WHY ARE YOU STILL HERE",
+  "CLOSE THE TAB",
+  "THIS ISNT DOING ANYTHING",
+  "BRO",
+  "PLEASE",
+  "ARE YOU OKAY?",
+  "OKAY NOW IM JUDGING YOU"
+];
+
+let delay = 800;
 
 function spawn() {
-  const d = document.createElement("div");
-  d.className = "pop";
-  d.textContent = texts[Math.floor(Math.random()*texts.length)];
-  d.style.left = Math.random()*95 + "vw";
-  d.style.top = Math.random()*95 + "vh";
-  document.body.appendChild(d);
-  setTimeout(()=>d.remove(), 1500);
+  const m = document.createElement("div");
+  m.className = "msg";
+  m.textContent = msgs[Math.floor(Math.random()*msgs.length)];
+  m.style.left = Math.random()*90 + "vw";
+  m.style.top = Math.random()*90 + "vh";
+  document.body.appendChild(m);
 
-  speed *= 0.96;
-  setTimeout(spawn, speed);
+  setTimeout(() => m.remove(), 2000);
+
+  delay *= 0.92;
+  setTimeout(spawn, delay);
 }
 
 spawn();

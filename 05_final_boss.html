@@ -1,35 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Final Boss 💀</title>
-
+<title>Ok Last One</title>
 <style>
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
   background: black;
-  overflow: hidden;
   color: white;
-  font-family: system-ui, sans-serif;
+  overflow: hidden;
+  font-family: system-ui;
 }
 
-.flash {
+.spam {
   position: absolute;
   font-size: clamp(2rem, 8vw, 8rem);
-  animation: flash .8s infinite;
+  animation: blink .6s infinite;
 }
 
-@keyframes flash {
-  50% { opacity: .2; }
+@keyframes blink {
+  50% { opacity: .1; }
 }
 
-#end {
+#calm {
+  display: none;
   position: absolute;
   inset: 0;
   background: #111;
-  display: none;
+  display: grid;
   place-items: center;
   text-align: center;
 }
@@ -37,33 +37,33 @@ body {
 </head>
 
 <body>
-
-<div id="end">
-  <h1>😂 FRIENDSHIP WINS 😂</h1>
-  <p>Happy Friendship Day 🫂</p>
+<div id="calm">
+  <h1>🙂 okay enough</h1>
+  <p>Happy Friendship Day</p>
+  <p>Now get back to your life.</p>
 </div>
 
 <script>
-let count = 0;
-const words = ["HAHA", "LOL", "BRO", "WHAT", "WHY"];
+let c = 0;
+const words = ["WHAT", "WHY", "HAHA", "BRO", "NO"];
 
-const i = setInterval(() => {
-  const f = document.createElement("div");
-  f.className = "flash";
-  f.textContent = words[Math.floor(Math.random()*words.length)];
-  f.style.left = Math.random()*90 + "vw";
-  f.style.top = Math.random()*90 + "vh";
-  document.body.appendChild(f);
-  count++;
+const int = setInterval(()=>{
+  const s = document.createElement("div");
+  s.className = "spam";
+  s.textContent = words[Math.floor(Math.random()*words.length)];
+  s.style.left = Math.random()*90 + "vw";
+  s.style.top = Math.random()*90 + "vh";
+  document.body.appendChild(s);
+  c++;
 
-  if (count > 20) {
-    clearInterval(i);
+  if (c > 18) {
+    clearInterval(int);
     setTimeout(()=>{
       document.body.innerHTML = "";
-      document.getElementById("end").style.display = "grid";
-    }, 1000);
+      document.getElementById("calm").style.display = "grid";
+    }, 800);
   }
-}, 250);
+}, 200);
 </script>
 </body>
 </html>

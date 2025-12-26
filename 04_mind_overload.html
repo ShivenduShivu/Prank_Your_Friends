@@ -1,45 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Mind Overload 🧠</title>
-
+<title>Don’t Move</title>
 <style>
 body {
   margin: 0;
   width: 100vw;
   height: 100vh;
-  background: #09091a;
-  color: #cdd6f4;
+  background: #111;
+  color: #fff;
   overflow: hidden;
+  font-family: system-ui;
 }
 
 .word {
   position: absolute;
-  font-size: clamp(2rem, 6vw, 6rem);
-  opacity: .15;
+  font-size: clamp(2rem, 6vw, 7rem);
+  opacity: .12;
 }
 </style>
 </head>
 
 <body>
 <script>
-const words = ["THINK", "FOCUS", "WHY", "OVERLOAD", "TOO MUCH"];
-
-words.forEach(w => {
-  const e = document.createElement("div");
-  e.className = "word";
-  e.textContent = w;
-  e.style.left = Math.random()*80 + "vw";
-  e.style.top = Math.random()*80 + "vh";
-  document.body.appendChild(e);
-});
+const words = ["WHY", "STOP", "RELAX", "BRO", "ENOUGH"];
 
 document.addEventListener("mousemove", e => {
-  document.querySelectorAll(".word").forEach((w,i)=>{
-    w.style.transform = `translate(${e.clientX/50*i}px, ${e.clientY/50*i}px)`;
-  });
+  const w = document.createElement("div");
+  w.className = "word";
+  w.textContent = words[Math.floor(Math.random()*words.length)];
+  w.style.left = e.clientX + "px";
+  w.style.top = e.clientY + "px";
+  document.body.appendChild(w);
+
+  setTimeout(()=>w.remove(), 1200);
 });
+
+setTimeout(()=>{
+  const end = document.createElement("div");
+  end.textContent = "See? You did this to yourself.";
+  end.style.position = "absolute";
+  end.style.bottom = "20px";
+  end.style.right = "20px";
+  document.body.appendChild(end);
+}, 8000);
 </script>
 </body>
 </html>
