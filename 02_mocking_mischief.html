@@ -1,50 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
-<title>Mock Mode 😜</title>
+<title>WHY ARE YOU STILL HERE</title>
 
 <style>
 body {
   margin: 0;
+  background: #0b0b0b;
   width: 100vw;
   height: 100vh;
-  background: #ffe066;
-  display: grid;
-  place-items: center;
   overflow: hidden;
+  font-family: monospace;
 }
 
-h1 {
-  font-size: clamp(3rem, 10vw, 9rem);
-  text-align: center;
-  animation: shake 2s infinite ease-in-out;
+.pop {
+  position: absolute;
+  font-size: clamp(1.4rem,3vw,2.2rem);
+  background: #ff0054;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 12px;
+  animation: pop .3s ease;
 }
 
-@keyframes shake {
-  0%,100% { transform: rotate(0deg); }
-  50% { transform: rotate(1deg); }
+.emoji {
+  position: absolute;
+  font-size: clamp(5rem, 14vw, 16rem);
+  animation: jitter .6s infinite;
+  pointer-events: none;
+}
+
+@keyframes pop {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes jitter {
+  0%{transform:translate(0)}
+  50%{transform:translate(6px,-6px)}
 }
 </style>
 </head>
 
 <body>
-<h1 id="text">LOOK AT YOU 😏</h1>
-
 <script>
-const roasts = [
-  "STILL SCROLLING?",
-  "PRODUCTIVITY LEFT THE CHAT",
-  "ABSOLUTE ICON",
-  "MAIN CHARACTER ENERGY",
-  "CONFIDENCE WITHOUT REASON"
+const insults = [
+  "BOZO","CLOWN","NPC","GOOF","DINGUS",
+  "WALNUT","DONKEY","GOBLIN","POTATO","MENACE"
 ];
 
-const t = document.getElementById("text");
+const emojis = ["🤡","🫵","😂","💀","🧠","🥔"];
 
-document.addEventListener("mousemove", () => {
-  t.textContent = roasts[Math.floor(Math.random()*roasts.length)];
-});
+let speed = 500;
+
+function spawn(){
+  const p=document.createElement("div");
+  p.className="pop";
+  p.textContent=insults[Math.floor(Math.random()*insults.length)];
+  p.style.left=Math.random()*90+"vw";
+  p.style.top=Math.random()*90+"vh";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),1200);
+
+  if(Math.random()<0.5){
+    const e=document.createElement("div");
+    e.className="emoji";
+    e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.left=Math.random()*80+"vw";
+    e.style.top=Math.random()*80+"vh";
+    document.bodyappendChild;
+    document.body.appendChild(e);
+    setTimeout(()=>e.remove(),1200);
+  }
+
+  speed*=0.94;
+  setTimeout(spawn,speed);
+}
+
+spawn();
 </script>
 </body>
 </html>

@@ -2,56 +2,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Stop Looking</title>
+<title>System Busy</title>
 <style>
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #000;
-  color: #0f0;
-  font-family: monospace;
-  overflow: hidden;
+body{
+  margin:0;
+  overflow:hidden;
+  background:black;
+  font-family:Impact;
 }
-
-.msg {
-  position: absolute;
-  font-size: clamp(1.2rem, 3vw, 3rem);
-  opacity: .8;
+.box{
+  position:absolute;
+  padding:20px;
+  font-size:40px;
+  color:white;
+  background:red;
+  animation:shake .15s infinite;
+}
+@keyframes shake{
+  0%{transform:translate(2px,2px)}
+  50%{transform:translate(-2px,-2px)}
+  100%{transform:translate(2px,-2px)}
 }
 </style>
 </head>
-
 <body>
+
 <script>
-const msgs = [
-  "STOP",
-  "WHY ARE YOU STILL HERE",
-  "CLOSE THE TAB",
-  "THIS ISNT DOING ANYTHING",
-  "BRO",
-  "PLEASE",
-  "ARE YOU OKAY?",
-  "OKAY NOW IM JUDGING YOU"
+const insults=[
+"ABE GADHE",
+"SOCHNE MEIN BUFFERING",
+"CPU > DIMAAG",
+"TU REHNE DE",
+"MISSION FAILED",
+"ERROR 404 BRAIN"
 ];
 
-let delay = 800;
+setInterval(()=>{
+  document.body.style.background=
+    `hsl(${Math.random()*360},100%,50%)`;
 
-function spawn() {
-  const m = document.createElement("div");
-  m.className = "msg";
-  m.textContent = msgs[Math.floor(Math.random()*msgs.length)];
-  m.style.left = Math.random()*90 + "vw";
-  m.style.top = Math.random()*90 + "vh";
-  document.body.appendChild(m);
-
-  setTimeout(() => m.remove(), 2000);
-
-  delay *= 0.92;
-  setTimeout(spawn, delay);
-}
-
-spawn();
+  const d=document.createElement("div");
+  d.className="box";
+  d.innerText=insults[Math.floor(Math.random()*insults.length)];
+  d.style.top=Math.random()*90+"%";
+  d.style.left=Math.random()*90+"%";
+  document.body.appendChild(d);
+},300);
 </script>
 </body>
 </html>

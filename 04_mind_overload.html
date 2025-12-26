@@ -2,49 +2,52 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Don’t Move</title>
+<title>Processing...</title>
 <style>
-body {
-  margin: 0;
-  width: 100vw;
-  height: 100vh;
-  background: #111;
-  color: #fff;
-  overflow: hidden;
-  font-family: system-ui;
+body{
+  margin:0;
+  background:#000;
+  color:#0f0;
+  font-family:monospace;
+  overflow:hidden;
 }
-
-.word {
-  position: absolute;
-  font-size: clamp(2rem, 6vw, 7rem);
-  opacity: .12;
+.txt{
+  position:absolute;
+  font-size:32px;
+  animation:glitch .4s infinite;
+}
+@keyframes glitch{
+  0%{opacity:1}
+  50%{opacity:.2}
+  100%{opacity:1}
 }
 </style>
 </head>
-
 <body>
+
 <script>
-const words = ["WHY", "STOP", "RELAX", "BRO", "ENOUGH"];
+const lines=[
+"WHY ARE YOU STILL HERE",
+"THIS IS NOT A GAME",
+"THINK FASTER",
+"INPUT INVALID",
+"LOGIC NOT FOUND",
+"PLEASE STOP BLINKING"
+];
 
-document.addEventListener("mousemove", e => {
-  const w = document.createElement("div");
-  w.className = "word";
-  w.textContent = words[Math.floor(Math.random()*words.length)];
-  w.style.left = e.clientX + "px";
-  w.style.top = e.clientY + "px";
-  document.body.appendChild(w);
+setInterval(()=>{
+  const t=document.createElement("div");
+  t.className="txt";
+  t.innerText=lines[Math.floor(Math.random()*lines.length)];
+  t.style.top=Math.random()*100+"%";
+  t.style.left=Math.random()*100+"%";
+  document.body.appendChild(t);
+},150);
 
-  setTimeout(()=>w.remove(), 1200);
-});
-
-setTimeout(()=>{
-  const end = document.createElement("div");
-  end.textContent = "See? You did this to yourself.";
-  end.style.position = "absolute";
-  end.style.bottom = "20px";
-  end.style.right = "20px";
-  document.body.appendChild(end);
-}, 8000);
+document.onmousemove=e=>{
+  document.body.style.transform=
+    `rotate(${Math.sin(e.clientX/50)}deg)`;
+};
 </script>
 </body>
 </html>
