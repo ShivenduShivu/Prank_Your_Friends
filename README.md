@@ -9,61 +9,137 @@
                                                Chaos, Laughs & Digital Mayhem 😈💥
 ```
 
-Welcome to the **Prank Repo** – a handpicked collection of standalone HTML prank files crafted to surprise, entertain, and mildly terrorize your friends (in the most harmless way possible). Powered by pure JavaScript and CSS magic, these escalate from sweet teases to absolute sensory overload. Ideal for friendly trolling or stress-testing friendships. Use responsibly – we’re not liable for spilled coffee or sudden screams! 🚀💥
+# 🤡💥 PRANK REPO — Chaos engineered with ❤️💥🤡
 
-Each file is a self-contained HTML page that works in any modern browser. Open locally for instant fun, or deploy the repo for sharing.
+> Chaos engineered with ❤️, JavaScript, and poor decision-making.
 
-**Slur Intensity Scale** (roast level):  
-🌶️ *Mild* – Playful nudges  
-🌶️🌶️ *Medium* – Cheeky burns  
-🌶️🌶️🌶️ *Extreme* – Full-on chaotic roasts
+Welcome to **Prank Repo** — a collection of **standalone HTML prank files** built purely with **HTML + CSS + JavaScript**.  
+No installs. No backend. No mercy (but still harmless 😇).
 
-## The Prank Lineup
+This repo is designed for **friends only** — exaggerated, annoying, theatrical, and intentionally over-the-top.  
+If someone laughs, mission accomplished. If they sigh loudly… also mission accomplished 😌.
 
-### 01_funny_warmup.html: The Gentle Opener 😊
-Lures victims in with positivity before a subtle twist – the perfect false sense of security.
+---
 
-- Passive text cycle with random tilt animations every 1.2s.
-- No audio or interactivity – just builds quiet anticipation.
-- Ends with a sly nudge to "open another file."
-- **Slur Intensity**: 🌶️ *Mild* – All vibes, zero burns.
+## 🎯 What This Repo Is
 
-### 02_mocking_mischief.html: The Interactive Tease 😏
-Turns mouse movement into instant mockery – light but addictive.
+✅ Frontend-only  
+✅ Browser-safe  
+✅ Copy–paste chaos  
+✅ Works offline  
+❌ Not malware  
+❌ Not serious  
+❌ Not responsible for emotional damage 🤡  
 
-- Giant text updates with random roasts on hover/scroll.
-- High interactivity for endless user-triggered laughs.
-- Ironic, self-aware humor like "MAIN CHARACTER ENERGY."
-- **Slur Intensity**: 🌶️🌶️ *Medium* – Fun pokes, nothing too sharp.
+Each file is **independent**. Open any one. Close it when you regret it.
 
-### 03_chaos_engine.html: The Visual Vortex 💥
-Flashing colors, spinning insults, floating GIFs, and horror audio – classic overload.
+---
 
-- Rapid background shifts, pop-up warnings, upward GIFs, and horizontal snakes.
-- Cursor movement rotates the entire page.
-- Edgy Hindi-English slurs with tech panic vibes.
-- **Slur Intensity**: 🌶️🌶️🌶️ *Extreme* – Bold, spinning roasts (e.g., "ABE GADHE 😭").
+## 🌶️ Roast / Chaos Intensity Scale
 
-### 04_mind_overload.html: The Virus Impersonator 🤖
-Fakes a system hack with glitches, worms, and spiraling memes – dual audio amps the alarm.
+- 🧁 **Mild** — playful teasing, safe vibes
+- 🌮 **Medium** — confident roasting, ego slightly bruised
+- 🌋 **Extreme** — screen takeover, full clown mode 🤡🔥
 
-- Glitch effects, exploding alerts, downward worms, and meme spirals.
-- Mouse inverts colors + forced fullscreen trap.
-- Hacker-themed burns with evil laughs and beeps.
-- **Slur Intensity**: 🌶️🌶️🌶️ *Extreme* – Degenerate tech roasts (e.g., "DELETE YOUR EXISTENCE 🗑️").
+---
 
-### 05_final_boss.html: The Haunted Horror Show 👻
-Ultimate scare: blood drips, ghosts zooming both ways, screams, and creepy ambience.
+## 📂 Prank Files
 
-- Pulsing backgrounds, fading curses, bi-directional horror GIFs, spider drops.
-- Mouse blurs screen + exit warning for extra entrapment.
-- Supernatural + cursed tech taunts.
-- **Slur Intensity**: 🌶️🌶️🌶️ *Extreme* – Spine-chilling burns (e.g., "YOUR SOUL IS MINE 🕯️").
+### 🟢 `01_funny_warmup.html` — *The Fake Nice One* 😄  
+Looks wholesome. Feels friendly.  
+Slowly turns passive-aggressive.
 
-## Deployment & Usage 🛠️
-- **Local Testing**: Just double-click any `.html` file – instant chaos!
-- **Customization**: Edit the JS arrays for personalized roasts or new GIFs.
-- **Safety Note**: Purely visual/audio – no real harm. Turn down volume for heart-sensitive victims 😅.
+- Floating messages & big emojis 🎈🙂  
+- Calm visuals, no interaction  
+- Ends with subtle disrespect 😏  
+
+**Intensity:** 🧁 Mild
+
+---
+
+### 🟡 `02_mocking_mischief.html` — *Mouse = Roast Trigger* 🫵😏  
+Move your mouse → get judged instantly.
+
+- Giant typography 🅰️🅱️  
+- Hover-based insults  
+- Self-aware mockery  
+
+**Intensity:** 🌮 Medium
+
+---
+
+### 🔴 `03_chaos_engine.html` — *Absolute Visual Nonsense* 💥🤯  
+Everything happens. All at once. Repeatedly.
+
+- Flashing backgrounds 🌈⚡  
+- Spinning text & emojis 🤡💀  
+- GIFs invading personal space  
+
+**Intensity:** 🌋 Extreme
+
+---
+
+### 🟣 `04_mind_overload.html` — *Your Screen Is Judging You* 🧠👀  
+Not loud. Just uncomfortable.
+
+- Giant emojis watching you 🫠🫵  
+- Cursor-reactive movement  
+- Psychological pressure, frontend edition  
+
+**Intensity:** 🌋 Extreme
+
+---
+
+### ⚫ `05_final_boss.html` — *The End. Literally.* 💀😂  
+The final mistake.
+
+- Full-screen domination 🖥️🔥  
+- Chaos ramps up → everything freezes ❄️  
+- Calm, smug ending that laughs at you  
+
+**Intensity:** 🌋🌋🌋 Extreme+
+
+---
+
+## ▶️ How to Use
+
+1. Clone or download the repo 📥  
+2. Open any `.html` file in a browser 🌐  
+3. Watch your friend question their life choices 🤡  
+4. Close tab when laughter peaks 😂  
+
+---
+
+## ⚠️ Disclaimer (Read This or Don’t)
+
+- These are **harmless pranks**
+- No real system access
+- No data collection
+- No infinite traps
+- No hate or targeting
+
+Just **visual + audio chaos** for fun.  
+Friendship cooldown time may vary 🫂⏳
+
+---
+
+## 🤝 Contributing
+
+Have a worse idea? Perfect.
+
+- Fork 🍴  
+- Add your own cursed prank 👹  
+- Keep it frontend-only  
+- Submit a PR 🚀  
+
+Let’s make this repo deeply unnecessary together.
+
+---
+
+**Prank responsibly.**  
+**Laugh aggressively.**  
+**Close the tab eventually.** 🤡💥
+
 
 More pranks incoming – escalating themes, wilder interactions, and fresh mayhem on the horizon. Fork, star, or contribute your own devious creations. Let's turn this into the ultimate prank playground! 🔥👹
 
