@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Chaos Engine 😭</title>
+
+<style>
+body {
+  margin: 0;
+  background: #111;
+  color: white;
+  font-family: monospace;
+  overflow: hidden;
+  animation: bgShift 4s linear infinite;
+}
+
+@keyframes bgShift {
+  0% { background: #111; }
+  50% { background: #2b193d; }
+  100% { background: #111; }
+}
+
+.pop {
+  position: absolute;
+  padding: 10px 16px;
+  background: #ff006e;
+  border-radius: 8px;
+  animation: popIn .4s ease forwards;
+}
+
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const phrases = [
+  "BRO STOP 😭",
+  "WHY ARE YOU STILL HERE",
+  "IT KEEPS COMING",
+  "MAKE IT END",
+  "FRIENDSHIP TEST FAILED"
+];
+
+setInterval(() => {
+  const el = document.createElement("div");
+  el.className = "pop";
+  el.textContent = phrases[Math.floor(Math.random()*phrases.length)];
+  el.style.left = Math.random() * 90 + "vw";
+  el.style.top = Math.random() * 90 + "vh";
+  document.body.appendChild(el);
+
+  setTimeout(() => el.remove(), 2000);
+}, 300);
+</script>
+</body>
+</html>

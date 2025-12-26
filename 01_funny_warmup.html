@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Friendship Day – Warm Up 😄</title>
+
+<style>
+:root {
+  --bg: linear-gradient(135deg, #fdfbfb, #ebedee);
+  --card: #ffffff;
+  --text: #333;
+  --accent: #ffb703;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 20px;
+  width: min(90%, 420px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  text-align: center;
+  animation: fadeUp 1s ease forwards;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.joke {
+  font-size: 1.1rem;
+  margin: 20px 0;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform .2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Happy Friendship Day 🫂</h1>
+    <div id="joke" class="joke"></div>
+    <button onclick="nextJoke()">Next 😄</button>
+  </div>
+
+<script>
+const jokes = [
+  "Friends are therapists you can insult for free 😂",
+  "Best friends know all your secrets… and still talk to you 😌",
+  "Friendship is surviving each other 💛",
+  "You’re not annoying. You’re… consistently memorable 😆",
+  "Okay okay, this was just warming up 😄"
+];
+
+let index = 0;
+const jokeEl = document.getElementById("joke");
+
+function nextJoke() {
+  jokeEl.style.opacity = 0;
+  setTimeout(() => {
+    jokeEl.textContent = jokes[index];
+    jokeEl.style.opacity = 1;
+    index = Math.min(index + 1, jokes.length - 1);
+  }, 300);
+}
+
+nextJoke();
+</script>
+</body>
+</html>

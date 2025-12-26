@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Final Boss 💀</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  color: white;
+  overflow: hidden;
+  font-family: system-ui, sans-serif;
+}
+
+.spawn {
+  position: absolute;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-20px); }
+}
+
+#final {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: #111;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div id="final">
+  <h1>😂 Friendship Level: MAX 😂</h1>
+  <p>Goli Beta, Baap Se Masti Nahi</p>
+  <p>Happy Friendship Day 💛</p>
+</div>
+
+<script>
+const words = ["HAHA", "RUN", "LOL", "WHY", "NOPE"];
+let count = 0;
+
+const interval = setInterval(() => {
+  const el = document.createElement("div");
+  el.className = "spawn";
+  el.textContent = words[Math.floor(Math.random()*words.length)];
+  el.style.left = Math.random()*90 + "vw";
+  el.style.top = Math.random()*90 + "vh";
+  document.body.appendChild(el);
+  count++;
+
+  if (count > 25) {
+    clearInterval(interval);
+    setTimeout(endScene, 1000);
+  }
+}, 200);
+
+function endScene() {
+  document.body.innerHTML = "";
+  document.getElementById("final").style.display = "grid";
+}
+</script>
+</body>
+</html>
