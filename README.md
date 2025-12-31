@@ -51,7 +51,7 @@ Slowly turns passive-aggressive.
 
 - Floating messages & big emojis 🎈🙂  
 - Calm visuals, no interaction  
-- Ends with subtle disrespect 😏  
+- Ends with subtle disrespect, they deserve this 😏  
 
 **Intensity:** 🧁 Mild
 
